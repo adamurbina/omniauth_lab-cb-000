@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if !user.nil?
       session[:user_id] = user.id
     else
+      user = User.new(auth_hash)
       user = User.new(name: auth_hash[:info][:name], email: auth_hash[:info][:email], uid: auth_hash[:uid])
       user.save
       session[:user_id] = user.id
