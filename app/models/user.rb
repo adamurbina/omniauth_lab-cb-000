@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
       user.provider = auth_hash[:provider]
       user.email = auth_hash[:info][:email]
       user.name = auth_hash[:info][:name]
+      binding.pry
     end
   end
 
